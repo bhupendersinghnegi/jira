@@ -1,0 +1,110 @@
+/* Common file is used to setup application styles */
+@font-face {
+  font-family: "Codega";
+  src: url("../fonts/Codega.ttf");
+}
+
+@font-face {
+  font-family: "SignikaNegative";
+  src: url("../fonts/SignikaNegative.ttf");
+}
+
+:root {
+  /* Global Colors || Background Color */
+  --gc-white: #ffffff;
+  --gc-light: #fafafa;
+  --gc-black: #000000;
+  --gc-green: #1bc326;
+  --gc-purple: #864af7;
+  --gc-orange: #fe7c07;
+  --gc-light-blue: #0b95de;
+  /* Background */
+  --bg-primary: #2c3a47;
+  --bg-secondary: #1d2b36;
+  --bg-light-blue: #0995dc;
+  --bg-btn-primary: #ffd229;
+  --bg-btn-primaryText: var(--bg-secondary);
+  --bg-btn-secondary: #ff5522;
+  --bg-btn-secondaryText: var(--gc-white);
+  /* Font Colors */
+  --fc-dark: var(--bg-secondary);
+  /* Fonts size */
+  --fs-heading: 20px;
+  --fs-paragraph: 16px;
+  /* Fonts Family */
+  --ff-codega: "Codega", Arial, sans-serif;
+  --ff-signikanegative: "SignikaNegative", Arial, sans-serif;
+  /* Fonts Weight */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+  --fw-bold: 800;
+  /* Grid Spacing */
+  --gs-small: 8px;
+  --gs-common: 16px;
+  --gs-large: 32px;
+  /* Border radius */
+  --br-small: 8px;
+}
+
+.font-codega {
+  font-family: var(--ff-codega);
+}
+
+input,
+select,
+textarea,
+button,
+body {
+  box-sizing: border-box;
+  font-size: var(--fs-paragraph);
+}
+
+body {
+  font-family: var(--ff-signikanegative);
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--gc-white);
+  font-weight: var(--fw-regular);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: var(--gs-common);
+}
+
+.btn {
+  appearance: none;
+  padding: var(--gs-common);
+  border-radius: var(--br-small);
+  width: 100%;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  background-color: var(--bg-btn-primary);
+  color: var(--bg-btn-primaryText);
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+}

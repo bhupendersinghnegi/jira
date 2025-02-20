@@ -1,0 +1,148 @@
+/* This is the file that will use to style every section, div, span and headings etc... */
+/* toast */
+.toast:not(.show) {
+    display: none;
+    width: 0px;
+    overflow: hidden;
+}
+
+.toast {
+    background-color: var(--gc-light);
+    width: 300px;
+    position: fixed;
+    right: var(--gs-common);
+    top: var(--gs-common);
+    color: var(--fc-dark);
+    border-radius: var(--br-small);
+    transition: .4s;
+}
+
+.toast .toast-body {
+    display: flex;
+    gap: var(--gs-small);
+    align-items: center;
+    padding: 10px;
+}
+
+/* toast close */
+/* login page */
+body.login {
+    background-image: url(../images/application-pc-background.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-color: #01060a;
+}
+
+.login {
+    width: 100%;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-right: 7vw;
+    position: relative;
+}
+
+.login::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50vw;
+    background-image: url(../images/login-from-background.svg);
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.loginForm {
+    width: 28vw;
+    position: relative;
+    z-index: 1;
+}
+
+.login--heading {
+    text-transform: uppercase;
+    font-family: var(--ff-codega);
+    letter-spacing: 3px;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+.login--title {
+    font-family: var(--ff-codega);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.login input {
+    background-color: unset;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid var(--gc-white);
+    padding: var(--gs-common);
+    width: 100%;
+    border-radius: var(--br-small);
+    margin-bottom: var(--gs-common);
+}
+
+.login input::placeholder,
+.login input {
+    color: #cbd2d7;
+}
+
+.login--forgot {
+    text-align: right;
+    color: #6eafff;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.login .btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: var(--gs-common);
+}
+
+.login--copyright {
+    color: var(--gc-light);
+    text-align: center;
+}
+
+@media (max-width:756px) {
+    .loginForm {
+        width: calc(100% - 30px);
+        margin: auto auto var(--gs-large);
+    }
+
+    .login {
+        padding-right: 0;
+    }
+
+    body.login {
+        background-image: url(../images/application-pc-mobile.jpg);
+    }
+
+    .login::after {
+        background-image: url(../images/login-from-background-mobile.svg);
+        width: 56%;
+        background-position: bottom;
+        left: 0;
+    }
+}
+
+/* login page close */

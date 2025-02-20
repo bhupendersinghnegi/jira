@@ -1,0 +1,18 @@
+SELECTCATEGORIES: {
+    CODE: `#$HEADER#$ #$DEPARTMENTCHANGE#$ #$GOBACK#$
+            #$FILTERHEADING#$
+            <section class="">
+            
+            </section>
+    `,
+    CLASSES: [
+        {
+            SELECTOR: "body",
+            CLASSSTATUS: false, // true means add, false means remove
+            CLASS: ["className", "className"]
+        }
+    ],
+    FUNCTIONS: [
+        "selectCategoriesHandler" // Do something not handled dynamically
+    ]
+},

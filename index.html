@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Task management application</title>
+    <link rel="shortcut icon" href="./images/application-logo.svg" type="image/x-icon">
+    <!-- Application css -->
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+
 </head>
 <body>
+    <!-- This is the starting part of this application -->
+    <main class="ContainerSection w-100"> 
+
+    </main>
+
     
+    <section class="toast listToast">
+        <div class="toast-body">
+            <img src="./images/alert-circle.svg" alt="alert circle" width="24" height="24">
+            <span class="toastText"></span>
+        </div>
+    </section>
+
+    <section class="back-drop"></section>
+    <script>
+        window.browsePath="./images/";
+    </script>
+    <!-- Application modules -->
+    <script src="./modules/Pages/LoginPage.js" type="module"></script> 
+    <script src="./modules/Controller.js" type="module"></script> 
 </body>
 </html>

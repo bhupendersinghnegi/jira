@@ -1,0 +1,92 @@
+// This is the json information about a task management system.
+users, tasks, attendants,
+
+// department1 Technical department
+// department2 Operational department
+// department3 Graphics department
+
+Indexing of the users(name, email), tasks(name), teams(name)
+{
+    users : {
+        [user_id] : {
+            user_id: user_id,
+            name : "Bhupender",
+            email : "Bhupnder@gmail.com",
+            password : "Bhupnder@gmail.com",
+            role : "Software Engineer",
+            department_id : department_id, // This will content the id of the department the user belongs to.
+            manager_id : [manager_id(user_id)],
+            team : {
+                departments: [department_id, department_id],
+                users: [user_id, user_id],
+            }, // A manager can have a departments and users so there departments and users members id will be here
+            profile_picture : "./images/profile.jpg",
+            assigned_tasks : [task_id, task_id],
+            can_create_tasks: true || "", // A user can have some extra powers even it's not assigned to there position
+            can_add_users: true || "",    // If "" then only check there position mapping
+        }
+    },
+    positions: { // Powers to the positions
+        admin: {
+            can_create_tasks: true || false,
+            can_add_users: true || false,
+        }
+    },
+    tasks : {
+        [task_id] :{
+            task_id : task_id,
+            name : "Fix UI Bug",
+            description : "Resolve UI issue in dashboard", // Info in sampleDescription.txt
+            category : "Bug",
+            tag_to : {
+                teams:[team_id, team_id],
+                users:[user_id, user_id],
+            },
+            created_by : [user_id, user_id],
+            assign_to : [user_id, user_id],
+            status : "in-progress",
+            attachments: ["file1.pdf", "screenshot.png"],
+            creation_time : "2025-02-02",
+            starting_date : "2025-02-02",
+            ending_date : "2025-02-10",
+        }
+    },
+    departments: {
+        [department_id]: {
+            department_id: "department_id",
+            name: "IT Department",
+            teams: [user_id, user_id]
+        }
+    },
+    attendants : {
+        [date:"january_10_02_2025"]:{
+            user_id:{
+                in_time: "10:15 AM",
+                out_time: "10:15 PM",
+                status: Half day || Absent || Sort leave,
+                request: Half day || Sort leave || etc...,  // If made any request
+                request_accept: not yet || true || false
+            }
+        },
+        [date:"january_10_02_2025"]:{
+           holiday: "holy",
+        },
+        [date:"january_10_02_2025"]:{
+           holiday: "Sunday",
+        }
+    },
+    notifications: {
+        [notification_id]: {
+            notification_id: "notification_id",
+            notification_type: leave || task || holiday || birthday,
+            tag_to : {
+                teams:[team_id, team_id],
+                users:[user_id, user_id],
+            },
+            message: "You have a new task assigned: Fix UI bug",
+            timestamp: "2025-02-02",
+            read": false || true
+        }
+    },
+}
+
