@@ -1,6 +1,13 @@
 import { errorModal } from "../AllFunctions.js";
-import { APPLICATION_DB, APPLICATION_MAPPING } from "../PorductInfo.js";
+import { loginInUserHandler } from "../Controller.js";
+import { pageNavigation, urlWriting } from "../Navigation.js";
+import { APPLICATION_DB, APPLICATION_MAPPING, LOGGED_IN_USER } from "../ProductInfo.js";
 
+
+// This function is used to render current year dynamically
+window.currentYearHandler = function currentYearHandler() {
+    return new Date().getFullYear();
+}
 // All the functions are in this page is for login page
 window.loginHandler = function loginHandler() {
     const loginForm = document.querySelector(".loginForm");
@@ -11,7 +18,7 @@ window.loginHandler = function loginHandler() {
     loginForm.removeEventListener("submit", loginSubmitHandler);
     loginForm.addEventListener("submit", loginSubmitHandler);
 }
-// This is the function that will hendle all the error before sending to the next page
+// This is the function that will handle all the error before sending to the next page
 function loginSubmitHandler(event) {
     event.preventDefault();
     const userId = document.querySelector(".userId");
@@ -30,7 +37,14 @@ function loginSubmitHandler(event) {
     const userKey = isUserEmail ? APPLICATION_MAPPING["user_email"][userIdValue] : APPLICATION_MAPPING["user_name"][userIdValue];
     const isUserPassword = APPLICATION_DB["USERS"].hasOwnProperty(userKey) ? APPLICATION_DB["USERS"][userKey]["password"] : null;
     if ((isUserName || isUserEmail) && isUserPassword === userPasswordValue) {
+        // Login the user to the application
+        localStorage.setItem(LOGGED_IN_USER, JSON.stringify(userKey));
+        loginInUserHandler(APPLICATION_DB["USERS"][userKey]);
+
         // Move to the next page
+        urlWriting(`?dashboard`);
+        pageNavigation(event.target);
+        // pageNavigation, 
         return true;
     }
 

@@ -21,6 +21,7 @@ function getURLQuery() {
     return params;
 }
 
+
 export {
     errorModal, getURLQuery
 };

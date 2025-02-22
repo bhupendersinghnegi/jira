@@ -1,5 +1,8 @@
+import { loginInUserHandler } from "./Controller.js";
+
 // This the file that contains all the application information all the structures will be based on this JSON provided by this file.
 const DB_NAME = "APPLICATION_DB";
+const LOGGED_IN_USER = "USER_ID";
 let APPLICATION_DB = {
     USERS: {
         user1: {
@@ -172,6 +175,10 @@ const APPLICATION_MAPPING = {
 // If data is same in user client then the application will start with that data
 function applicationHandler() {
     const storedInLocal = localStorage.getItem(DB_NAME);
+    // Set up the user to the application
+    const userId = localStorage.getItem(LOGGED_IN_USER);
+    userId && loginInUserHandler(APPLICATION_DB["USERS"][JSON.parse(userId)]);
+
     // Check is localStorage do not have DB_NAME if not just add APPLICATION_DB
     if (!localStorage.getItem(DB_NAME)) {
         localStorage.setItem(DB_NAME, JSON.stringify(APPLICATION_DB));
@@ -179,6 +186,7 @@ function applicationHandler() {
         applicationMappingHandler();
         return APPLICATION_DB;
     }
+    
     // Else set the information client have
     APPLICATION_DB = JSON.parse(storedInLocal);
     applicationMappingHandler();
@@ -201,7 +209,7 @@ function applicationMappingHandler() {
         const { name } = value;
         APPLICATION_MAPPING["user_departments"][name] = key;
     })
-    console.log(APPLICATION_DB)
 }
 
-export { applicationHandler, APPLICATION_MAPPING, APPLICATION_DB };
+export { APPLICATION_DB, APPLICATION_MAPPING, applicationHandler, LOGGED_IN_USER };
+

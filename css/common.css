@@ -43,6 +43,7 @@
   /* Grid Spacing */
   --gs-small: 8px;
   --gs-common: 16px;
+  --gs-medium: 20px;
   --gs-large: 32px;
   /* Border radius */
   --br-small: 8px;
@@ -56,9 +57,12 @@ input,
 select,
 textarea,
 button,
-body {
-  box-sizing: border-box;
+body { 
   font-size: var(--fs-paragraph);
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
 }
 
 body {
@@ -83,7 +87,9 @@ h6 {
   margin-top: 0;
   margin-bottom: var(--gs-common);
 }
-
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+  display: block;
+}
 .btn {
   appearance: none;
   padding: var(--gs-common);
@@ -107,4 +113,38 @@ h6 {
 .img-fluid {
   width: 100%;
   height: auto;
+}
+.list-unset{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dorpdown{
+  position:relative;
+}
+.dorpdown--menu:not(.active){
+  display:none;
+}
+.dorpdown--menu{
+  position: absolute;
+  right: 0;
+  padding: var(--gs-common);
+  background-color: var(--gc-white);
+  color: var(--bg-secondary);
+  border-radius: var(--br-small);
+}
+.fill--white {
+  fill: var(--gc-white);
+}
+.stroke--white {
+  stroke: var(--gc-white);
+}
+
+.row{
+  display: flex;
+  width:100%;
+  gap: var(--gs-common);
+}
+.flex-1{
+  flex: 1;
 }
