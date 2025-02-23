@@ -19,7 +19,7 @@ window.currentUserHandler = function currentUserHandler() {
         return null;
     }
     return `<div class="loggedInUser">
-                    <img src="${browsePath}${loginInUser["profile_picture"]}" alt="${loginInUser["name"]}" width="60" height="60" />
+                    <img src="${browsePath}${loginInUser["profile_picture"]}" alt="${loginInUser["name"]}" width="55" height="55" />
                     <div class="user--details">
                         <h2 class="user--name">${loginInUser["name"]}</h2>
                         <p class="user--role">${loginInUser["role"]}</p>

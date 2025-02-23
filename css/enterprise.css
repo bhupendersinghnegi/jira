@@ -1,0 +1,110 @@
+/* This file will hold the information about the brand gide line */
+
+.tasks--cart .cart--head {
+    padding: var(--gs-common);
+}
+
+.tasks--cart .cart--head .enterpriseImage {
+    width: 150px;
+}
+
+
+.tasks--cart[data-enterprise="google"] .cart--head {
+    background-color: var(--bg-google);
+}
+
+.tasks--cart[data-enterprise="google"] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise="ciscosystems"] .cart--head {
+    background-color: var(--bg-ciscosystems);
+}
+
+.tasks--cart[data-enterprise="ciscosystems"] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise="appleinc."] .cart--head {
+    background-color: var(--bg-appleinc);
+}
+
+.tasks--cart[data-enterprise="appleinc."] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise="meta(facebook)"] .cart--head {
+    background-color: var(--bg-meta);
+}
+
+.tasks--cart[data-enterprise="meta(facebook)"] .cart--head .enterpriseImage {}
+
+
+.tasks--cart[data-enterprise="netflix"] .cart--head {
+    background-color: var(--bg-netflix);
+}
+
+.tasks--cart[data-enterprise="netflix"] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise="tesla"] .cart--head {
+    background-color: var(--bg-tesla);
+}
+
+.tasks--cart[data-enterprise="tesla"] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise="airbnb"] .cart--head {
+    background-color: var(--bg-airbnb);
+}
+
+.tasks--cart[data-enterprise="airbnb"] .cart--head .enterpriseImage {}
+
+
+.tasks--cart[data-enterprise="tesla"] .cart--head {
+    background-color: var(--bg-tesla);
+}
+
+.tasks--cart[data-enterprise="tesla"] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise="nike"] .cart--head {
+    background-color: var(--bg-nike);
+}
+
+.tasks--cart[data-enterprise="nike"] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise="hdfcbank"] .cart--head {
+    background-color: var(--bg-hdfcbank);
+}
+
+.tasks--cart[data-enterprise="hdfcbank"] .cart--head .enterpriseImage {
+    width: 220px;
+}
+
+.tasks--cart[data-enterprise="microsoft"] .cart--head {
+    background-color: var(--bg-microsoft);
+}
+
+.tasks--cart[data-enterprise="microsoft"] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise=""] .cart--head {
+    background-color: var(--bg-google);
+}
+
+.tasks--cart[data-enterprise=""] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise=""] .cart--head {
+    background-color: var(--bg-google);
+}
+
+.tasks--cart[data-enterprise=""] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise=""] .cart--head {
+    background-color: var(--bg-google);
+}
+
+.tasks--cart[data-enterprise=""] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise=""] .cart--head {
+    background-color: var(--bg-google);
+}
+
+.tasks--cart[data-enterprise=""] .cart--head .enterpriseImage {}
+
+.tasks--cart[data-enterprise=""] .cart--head {
+    background-color: var(--bg-google);
+}
+
+.tasks--cart[data-enterprise=""] .cart--head .enterpriseImage {}

@@ -47,6 +47,17 @@
   --gs-large: 32px;
   /* Border radius */
   --br-small: 8px;
+  /* enterprise color code  */
+  --bg-hdfcbank: #004c8f;
+  --bg-google: #ffffff;
+  --bg-ciscosystems: #000000;
+  --bg-appleinc: #ffffff;
+  --bg-meta: #ffffff;
+  --bg-netflix: #ffffff;
+  --bg-airbnb: #ffffff;
+  --bg-tesla: #e82127;
+  --bg-nike: #ffffff;
+  --bg-microsoft: #e6e6e6;
 }
 
 .font-codega {

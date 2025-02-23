@@ -108,7 +108,7 @@ const ApplicationStructure = {
                 #$NAVIGATION_COMPONENT#$
                 <div class="mainSection">
                     #$HEADER_COMPONENT#$
-                    $$tarskHandler$$
+                    $$tarskHandler$$ 
                 </div>
             </section>
         `,
@@ -121,11 +121,19 @@ const ApplicationStructure = {
         ],
     },
     TASK_PAGE: {
-        CODE: `
-            <section class="container dashboardPage">
+        CODE: `<section class="container dashboardPage">
                 #$NAVIGATION_COMPONENT#$
-            </section>
-        `
+                <div class="mainSection">
+                    <div class="header--gap">
+                        #$HEADER_COMPONENT#$ 
+                        $$taskFilterHandler$$
+                    </div>
+                    $$taskHandler$$
+                </div>
+            </section>`,
+        FUNCTIONS: [
+            "taskPageHandler" // Do something not handled dynamically
+        ]
     },
     MEETINGS_PAGE: {
         CODE: `

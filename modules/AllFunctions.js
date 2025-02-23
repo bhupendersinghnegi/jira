@@ -22,7 +22,21 @@ function getURLQuery() {
 }
 
 
+
+// This function will tack Tue Feb 10 2025 09:00:00 GMT+0530 and give us a date/month/year
+function formattedDateHandler(dateString) {
+    const dateObj = new Date(dateString);
+
+    const day = dateObj.getDate().toString().padStart(2, '0');  // Get day (DD)
+    const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // Get month (MM)
+    const year = dateObj.getFullYear(); // Get year (YYYY)
+
+    const formattedDate = `${day}/${month}/${year}`;
+    return formattedDate;
+}
+
+
 export {
-    errorModal, getURLQuery
+    errorModal, getURLQuery, formattedDateHandler
 };
 
