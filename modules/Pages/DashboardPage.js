@@ -93,7 +93,8 @@ window.taskFilterHandler = function taskFilterHandler() {
         </section>`;
 }
 // This function will render all the the task assgin to the user
-window.taskHandler = function taskHandler(enterpriseHandler) {
+// window.taskHandler = function taskHandler(enterpriseHandler, searchKeyword="redesign social ") {
+window.taskHandler = function taskHandler(enterpriseHandler, searchKeyword = "task6") {
     try {
         // Print task as per the user login
         const TASKSTATUS = {
@@ -102,7 +103,7 @@ window.taskHandler = function taskHandler(enterpriseHandler) {
             Completed: "",
         }
 
-        Object.entries(loginInUser["assigned_tasks"]).forEach(([key, value]) => {
+        Object.entries(loginInUser["assigned_tasks"]).forEach(([key, _]) => {
             // Check of task
             if (!APPLICATION_DB["TASKS"].hasOwnProperty(key)) {
                 console.log("Check the tasks:: " + key)
@@ -119,6 +120,11 @@ window.taskHandler = function taskHandler(enterpriseHandler) {
                 return null;
             }
 
+            // Check for serach tasks
+            if (searchKeyword && (!key.toLowerCase().includes(searchKeyword) || !title.toLowerCase().includes(searchKeyword))) {
+                console.log(`Search keyword do not work with:: key ${key}, title ${title}, keyword ${searchKeyword}`);
+                return null;
+            }
 
             const userName = APPLICATION_DB["USERS"][assigned_to]["name"]
             const { image_url, name } = ENTERPRISE[enterprise];

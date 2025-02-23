@@ -11,6 +11,7 @@
   height: 50px;
   box-shadow: 4px 4px 12px #ffffff40, -4px -4px 12px #ffffff40;
 }
+
 .ContainerSection>section {
   display: flex;
   gap: var(--gs-medium);
@@ -421,7 +422,7 @@ header .userInfo {
 }
 
 .tasks {
-  width:100%;
+  width: 100%;
   display: flex;
   gap: var(--gs-common);
 }
@@ -484,13 +485,16 @@ header .userInfo {
 .assign--task>p {
   font-weight: var(--fw-bold);
 }
-.taskno--found{
-  margin-top:var(--gs-common);
+
+.taskno--found {
+  margin-top: var(--gs-common);
   /* text-align:center; */
 }
-.taskno--found h2{
+
+.taskno--found h2 {
   font-family: var(--ff-signikanegative);
   font-weight: var(--fw-semi-bold);
   font-size: 32px;
 }
+
 /* task page close */
