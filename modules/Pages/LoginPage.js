@@ -1,5 +1,5 @@
 import { errorModal } from "../AllFunctions.js";
-import { loginInUserHandler } from "../Controller.js";
+import { loginUserHandler } from "../Controller.js";
 import { pageNavigation, urlWriting } from "../Navigation.js";
 import { APPLICATION_DB, APPLICATION_MAPPING, LOGGED_IN_USER } from "../ProductInfo.js";
 
@@ -39,7 +39,7 @@ function loginSubmitHandler(event) {
     if ((isUserName || isUserEmail) && isUserPassword === userPasswordValue) {
         // Login the user to the application
         localStorage.setItem(LOGGED_IN_USER, JSON.stringify(userKey));
-        loginInUserHandler(APPLICATION_DB["USERS"][userKey]);
+        loginUserHandler(APPLICATION_DB["USERS"][userKey]);
 
         // Move to the next page
         urlWriting(`?dashboard`);

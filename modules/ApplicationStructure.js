@@ -1,8 +1,6 @@
 // This is a object based file that will have all the HTML structure of the application
 
-import { dashboardIcon, folderIcon, meetingDateIcon,  notificationIcon, policyIcon, settingsIcons, taskIcon, teamsIcon } from "./ApplicationIcons.js";
-import { loginInUser } from "./Controller.js";
-import { APPLICATION_DB } from "./ProductInfo.js";
+import { dashboardIcon, folderIcon, meetingDateIcon, notificationIcon, policyIcon, settingsIcons, taskIcon, teamsIcon } from "./ApplicationIcons.js";
 
 
 
@@ -20,7 +18,7 @@ const URL_MAPPING = {
         SVG_IMAGE: taskIcon,
         IMAGE_ALT: "task icon",
         IS_ACTIVE: false, // true || false
-        PAGE: "TASK_PAGE"
+        PAGE: "TASKS_PAGE"
     },
     meetings: {
         SVG_IMAGE: meetingDateIcon,
@@ -108,7 +106,7 @@ const ApplicationStructure = {
                 #$NAVIGATION_COMPONENT#$
                 <div class="mainSection">
                     #$HEADER_COMPONENT#$
-                    $$tarskHandler$$ 
+                    $$dashboardTasks$$ 
                 </div>
             </section>
         `,
@@ -120,7 +118,7 @@ const ApplicationStructure = {
             }
         ],
     },
-    TASK_PAGE: {
+    TASKS_PAGE: {
         CODE: `<section class="container dashboardPage">
                 #$NAVIGATION_COMPONENT#$
                 <div class="mainSection">
@@ -134,6 +132,16 @@ const ApplicationStructure = {
         FUNCTIONS: [
             "taskPageHandler" // Do something not handled dynamically
         ]
+    },
+    TASK_PAGE: {
+        CODE: `<section class="container dashboardPage">
+                #$NAVIGATION_COMPONENT#$
+                <div class="mainSection">
+                    <div class="header--gap">
+                        #$HEADER_COMPONENT#$
+                    </div>
+                </div>
+            </section>`,
     },
     MEETINGS_PAGE: {
         CODE: `

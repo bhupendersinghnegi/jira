@@ -1,4 +1,4 @@
-import { loginInUserHandler } from "./Controller.js";
+import { loginUserHandler } from "./Controller.js";
 
 // This the file that contains all the application information all the structures will be based on this JSON provided by this file.
 const DB_NAME = "APPLICATION_DB";
@@ -155,7 +155,7 @@ let APPLICATION_DB = {
             "description": "Develop and deploy a scalable e-commerce platform to handle millions of transactions.",
             "status": "Working",
             "assigned_to": "user4",
-            "enterprise": "enterprise13",
+            "enterprise": "enterprise2",
             "tag_to": {
                 "departments": ["IT", "Marketing"],
                 "users": ["user2", "user4", "user6"]
@@ -170,7 +170,7 @@ let APPLICATION_DB = {
             "description": "Enhance security protocols to prevent data breaches and cyber threats.",
             "status": "Pending",
             "assigned_to": "user3",
-            "enterprise": "enterprise16",
+            "enterprise": "enterprise2",
             "tag_to": {
                 "departments": ["IT", "Security"],
                 "users": ["user5", "user6", "user7"]
@@ -505,7 +505,7 @@ const ENTERPRISE = {
 
 
 // Type of task that shows the state of a task
-const TASKSTATUS = {
+const TASK_STATUS = {
     Pending: 0,
     Working: 0,
     Completed: 0,
@@ -523,7 +523,7 @@ function applicationHandler() {
     const storedInLocal = localStorage.getItem(DB_NAME);
     // Set up the user to the application
     const userId = localStorage.getItem(LOGGED_IN_USER);
-    userId && loginInUserHandler(APPLICATION_DB["USERS"][JSON.parse(userId)]);
+    userId && loginUserHandler(APPLICATION_DB["USERS"][JSON.parse(userId)]);
 
     // Check is localStorage do not have DB_NAME if not just add APPLICATION_DB
     if (!localStorage.getItem(DB_NAME)) {
@@ -557,5 +557,5 @@ function applicationMappingHandler() {
     })
 }
 
-export { TASKSTATUS, ENTERPRISE, APPLICATION_DB, APPLICATION_MAPPING, applicationHandler, LOGGED_IN_USER };
+export { APPLICATION_DB, APPLICATION_MAPPING, applicationHandler, ENTERPRISE, LOGGED_IN_USER, TASK_STATUS };
 

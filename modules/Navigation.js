@@ -2,8 +2,8 @@
 
 import { getURLQuery } from "./AllFunctions.js";
 import { pageLoader, URL_MAPPING, userIsActiveHandler } from "./ApplicationStructure.js";
-import { loginInUser } from "./Controller.js";
-import { APPLICATION_DB } from "./ProductInfo.js";
+import { LOGIN_USER } from "./Controller.js";
+import { APPLICATION_DB, ENTERPRISE } from "./ProductInfo.js";
 
 // This url is used to track of the last url user have visited
 // If user have not visited any page goToHomePage function will send user to home page 
@@ -39,6 +39,12 @@ async function Navigation() {
             const dataURL = currentLink.dataset.url;
             urlWriting(`?${dataURL}`);
             pageNavigation(targetElement);
+        } else if (targetElement.closest(".tasksCart")) {
+            const tasksCart = targetElement.closest(".tasksCart");
+            const taskId = tasksCart.dataset.task;
+            const enterpriseId = tasksCart.dataset.enterprise_id;
+            urlWriting(`?task=${taskId}&enterprise=${enterpriseId}`);
+            pageNavigation(targetElement);
         }
     })
 }
@@ -53,14 +59,14 @@ function pageNavigation(targetElement) {
 
     // Check if if user is login or not
     // Redirect to the login page is user is not login
-    if (!loginInUser || !Object.keys(loginInUser).length) {
+    if (!LOGIN_USER || !Object.keys(LOGIN_USER).length) {
         // GO back to the login page
         urlWriting(``)
         pageLoader({ page: "LOGIN_PAGE" });
         return null;
     }
 
-    const rightPage = Object.entries(URL_MAPPING).some(([key, value]) => {
+    let rightPage = Object.entries(URL_MAPPING).some(([key, value]) => {
         const { PAGE } = value;
         if (URLSetup.hasOwnProperty(key)) {
             userIsActiveHandler({ user: key });
@@ -69,6 +75,19 @@ function pageNavigation(targetElement) {
         }
         return false;
     });
+
+    // Some other cases that are not handled in right pages variable
+    if (Object.keys(URLSetup).length === 2) {
+        const task = APPLICATION_DB["TASKS"].hasOwnProperty(URLSetup["task"]);
+        const enterprise = ENTERPRISE.hasOwnProperty(URLSetup["enterprise"]);
+        if (task && enterprise) {
+            userIsActiveHandler({ user: "tasks" });
+            pageLoader({ page: "TASK_PAGE" });
+            rightPage = true;
+        } else {
+            rightPage = false;
+        }
+    }
 
     // If we do not have any page to show the user just go to dashboard
     if (!rightPage) {

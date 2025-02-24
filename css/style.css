@@ -240,7 +240,7 @@ header {
 }
 
 .info--options svg {
-  height: 35px;
+  height: 28px;
   width: auto;
 }
 
@@ -265,18 +265,24 @@ header .userInfo {
 }
 
 .user--details {
+  /* display:flex;
+  flex-direction:column;
+  justify-content:center; */
   /* padding: 5px 0; */
 }
 
 .user--name {
   font-family: var(--ff-signikanegative);
-  font-size: 25px;
+  font-size: 24px;
   font-weight: var(--fw-regular);
   margin-bottom: 0;
+  line-height:1;
 }
 
 .user--role {
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: var(--fw-light);
+  margin-bottom:0;
 }
 
 /* header close */
@@ -319,7 +325,7 @@ header .userInfo {
   background-color: #864AF7;
 }
 
-.inProgess--task {
+.inProgress--task {
   background-color: #FE7C07;
 }
 
@@ -356,7 +362,7 @@ header .userInfo {
   border-radius: var(--br-small);
 }
 
-.filter--seletors {
+.filter--selectors {
   display: flex;
   gap: var(--gs-common);
 }
@@ -368,9 +374,9 @@ header .userInfo {
 .filter--search input:hover,
 .filter--search input:focus,
 .filter--search input,
-.filter--seletors select:hover,
-.filter--seletors select:focus,
-.filter--seletors select {
+.filter--selectors select:hover,
+.filter--selectors select:focus,
+.filter--selectors select {
   outline: none;
   border: none;
   appearance: none;
@@ -380,17 +386,17 @@ header .userInfo {
   color: var(--bg-secondary);
 }
 
-.filter--seletors select:hover,
-.filter--seletors select:focus,
-.filter--seletors select {
+.filter--selectors select:hover,
+.filter--selectors select:focus,
+.filter--selectors select {
   padding: 10px var(--gs-large) 10px var(--gs-common);
 }
 
-.filter--seletors .select {
+.filter--selectors .select {
   position: relative;
 }
 
-.filter--seletors .select::after {
+.filter--selectors .select::after {
   content: "";
   position: absolute;
   right: 8px;
@@ -470,7 +476,7 @@ header .userInfo {
 }
 
 .cart--head img {
-  height: 98px;
+  height: 60px;
 }
 
 .task--duedate {
@@ -494,7 +500,7 @@ header .userInfo {
 .taskno--found h2 {
   font-family: var(--ff-signikanegative);
   font-weight: var(--fw-semi-bold);
-  font-size: 32px;
+  font-size: 24px;
 }
 
 /* task page close */

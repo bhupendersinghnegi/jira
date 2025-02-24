@@ -36,7 +36,16 @@ function formattedDateHandler(dateString) {
 }
 
 
-export {
-    errorModal, getURLQuery, formattedDateHandler
-};
+// This is the function that will handle Debouncing for the hole application
+function debouncingHandler(fn, delay = 1000) {
+    let timer;
+    return function (...arg) {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn(arg);
+        }, delay);
+    }
+} 
+
+export { debouncingHandler, errorModal, formattedDateHandler, getURLQuery };
 
