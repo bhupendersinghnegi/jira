@@ -10,31 +10,31 @@ const ContainerSection = document.querySelector(".ContainerSection");
 const URL_MAPPING = {
     dashboard: {
         SVG_IMAGE: dashboardIcon,
-        IMAGE_ALT: "dashboard icon",
+        TASK_NAME: "Dashboard Page",
         IS_ACTIVE: false, // true || false
         PAGE: "DASHBOARD_PAGE"
     },
     tasks: {
         SVG_IMAGE: taskIcon,
-        IMAGE_ALT: "task icon",
+        TASK_NAME: "Tasks Page",
         IS_ACTIVE: false, // true || false
         PAGE: "TASKS_PAGE"
     },
     meetings: {
         SVG_IMAGE: meetingDateIcon,
-        IMAGE_ALT: "meeting date icon",
+        TASK_NAME: "Meeting Details Page",
         IS_ACTIVE: false, // true || false
         PAGE: "MEETINGS_PAGE"
     },
     files: {
         SVG_IMAGE: folderIcon,
-        IMAGE_ALT: "folder icon",
+        TASK_NAME: "Assets Page",
         IS_ACTIVE: false, // true || false
         PAGE: "FILES_PAGE"
     },
     teams: {
         SVG_IMAGE: teamsIcon,
-        IMAGE_ALT: "teams icon",
+        TASK_NAME: "Teams Info Page",
         IS_ACTIVE: false, // true || false
         PAGE: "TEAMS_PAGE"
     },
@@ -95,6 +95,8 @@ const ApplicationStructure = {
                 <img src="${browsePath}application-logo.svg" class="navigation--logo" alt="application logo" width="60" height="60" />
                 <ul class="navigation--list list-unset">
                     $$$navigationHandler$$$
+                    $$$addTaskHandler$$$
+                    
                 </ul>
             </aside>
         `
@@ -134,11 +136,15 @@ const ApplicationStructure = {
         ]
     },
     TASK_PAGE: {
-        CODE: `<section class="container dashboardPage">
+        CODE: `<section class="container taskDetailsPage">
                 #$NAVIGATION_COMPONENT#$
                 <div class="mainSection">
-                    <div class="header--gap">
-                        #$HEADER_COMPONENT#$
+                    #$HEADER_COMPONENT#$
+                    <div class="task--details">
+                        <h2 class="task--heading">Task Details</h2>
+                        <div class="task--info">
+                            $$taskDetailsHandler$$
+                        </div>
                     </div>
                 </div>
             </section>`,

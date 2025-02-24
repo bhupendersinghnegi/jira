@@ -98,6 +98,10 @@ h6 {
   margin-top: 0;
   margin-bottom: var(--gs-common);
 }
+.h2{
+  font-weight: bold;
+  font-size: 20px;
+}
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }

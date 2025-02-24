@@ -1,4 +1,4 @@
-import { debouncingHandler, formattedDateHandler } from "../AllFunctions.js";
+import { debouncingHandler, formattedDateHandler, getURLQuery } from "../AllFunctions.js";
 import { filterSearch } from "../ApplicationIcons.js";
 import { LOGIN_USER, MIN_SEARCH_LENGTH } from "../Controller.js";
 import { APPLICATION_DB, ENTERPRISE, TASK_STATUS } from "../ProductInfo.js";
@@ -79,7 +79,7 @@ window.taskHandler = function taskHandler(enterpriseHandler, searchKeyword) {
 
             const userName = APPLICATION_DB["USERS"][assigned_to]["name"]
             const { image_url, name } = ENTERPRISE[enterprise];
-            const taskDueDate = formattedDateHandler(dueDate); 
+            const taskDueDate = formattedDateHandler(dueDate);
             const enterprise_name = name.replaceAll(" ", "").toLowerCase();
 
 
@@ -172,8 +172,55 @@ window.taskPageHandler = function taskPageHandler() {
         searchHandler();
     })
 }
+// This function will give all the assgin departments and users images
+function assginToHandler(task_id, tag_to) {
+    return tag_to["users"].map(user => {
+        if (!APPLICATION_DB["USERS"].hasOwnProperty(user)) { return null; }
+        const { name, profile_picture } = APPLICATION_DB["USERS"][user];
+        return `<li title="${name}">
+            <img src="${browsePath}${profile_picture}" alt="${name}" width="50" height="50"/>
+        </li>`
+    }).join("");
+}
 
-// Task details
-window.taskDetailsHandler = function taskDetailsHandler({taskId, enterpriseId}) {
-    debugger
+// All the details about the task will be render from here
+window.taskDetailsHandler = function taskDetailsHandler() {
+
+    // Get info from the url and setup the display container
+    let URLSetup = getURLQuery();
+
+    const { task_id, title, description, tag_to, status, assigned_to, startingDate, dueDate } = APPLICATION_DB["TASKS"][URLSetup["task"]];
+    const { name } = ENTERPRISE[URLSetup["enterprise"]];
+    const { name: userName } = APPLICATION_DB["USERS"][assigned_to];
+    const setStartingDate = formattedDateHandler(startingDate);
+    const setEndDate = formattedDateHandler(dueDate);
+    const assginTo = assginToHandler(task_id, tag_to);
+
+    return `
+        <div>
+            <span class="h2">Product:</span> ${name}
+        </div>
+        <div>
+            <span class="h2">Task Title:</span> ${title}
+        </div>
+        <div>
+            <span class="h2">Description:</span> ${description}
+        </div>
+        <div class="assgin--to">
+            <span class="h2">Assigned To:</span> ${userName}
+            <img src="${browsePath}edit-task.svg" class="editTask" alt="edit task" width="20" height="20" />
+        </div>
+        <div>
+            <span class="h2">Status:</span> ${status}
+        </div>
+        <div>
+            <span class="h2">Starting Date:</span> ${setStartingDate}
+        </div>
+        <div>
+            <span class="h2">End Date:</span> ${setEndDate}
+        </div>
+        <ul class="list-unset tag--to">
+            ${assginTo}
+        </ul>
+    `
 }

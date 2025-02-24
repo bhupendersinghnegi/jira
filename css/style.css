@@ -190,6 +190,7 @@ body.login {
   display: flex;
   flex-direction: column;
   gap: var(--gs-medium);
+  height:100%;
 }
 
 .navigation--link {
@@ -199,6 +200,11 @@ body.login {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.addTask {
+  padding: 0px;
+  margin-top: auto;
 }
 
 .navigation--link svg {
@@ -276,13 +282,13 @@ header .userInfo {
   font-size: 24px;
   font-weight: var(--fw-regular);
   margin-bottom: 0;
-  line-height:1;
+  line-height: 1;
 }
 
 .user--role {
   font-size: 16px;
   font-weight: var(--fw-light);
-  margin-bottom:0;
+  margin-bottom: 0;
 }
 
 /* header close */
@@ -504,3 +510,48 @@ header .userInfo {
 }
 
 /* task page close */
+/* task details */
+.task--info,
+.task--details {
+  display: flex;
+  flex-direction: column;
+}
+
+.task--details {
+  gap: 28px;
+}
+
+.task--info {
+  gap: var(--gs-common);
+}
+
+.task--heading {
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+
+.assgin--to {
+  display: flex;
+  align-items: center;
+  gap: var(--gs-small);
+}
+
+.editTask {
+  cursor: pointer;
+}
+
+.tag--to {
+  display: flex;
+}
+
+.tag--to li:not(:first-child) {
+  margin-left: -12px;
+}
+
+.tag--to li {
+  border-radius: 100px;
+  background-color: var(--gc-light);
+  border: 2px solid #0995DC;
+}
+
+/* task details close */

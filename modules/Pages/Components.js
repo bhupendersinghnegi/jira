@@ -6,11 +6,23 @@ import { LOGIN_USER } from "../Controller.js";
 // This function will render all the pages that are available
 window.navigationHandler = function navigationHandler() {
     return Object.entries(URL_MAPPING).map(([key, value]) => {
-        const { SVG_IMAGE, IMAGE_ALT, IS_ACTIVE, PAGE } = value;
-        return `<li class="navigation--link navigationLink ${IS_ACTIVE ? `active--link` : ""}" data-page="${PAGE}" data-url="${key}">
+        const { SVG_IMAGE, TASK_NAME, IS_ACTIVE, PAGE } = value;
+        return `<li class="navigation--link navigationLink ${IS_ACTIVE ? `active--link` : ""}" title="${TASK_NAME}" data-page="${PAGE}" data-url="${key}">
             ${SVG_IMAGE}
         </li>`
     }).join("");
+}
+
+// Add task option
+window.addTaskHandler = function addTaskHandler() {
+
+    if (!LOGIN_USER) {
+        console.log("addTaskHandler:: Please check the user")
+        return null;
+    }
+    return `<li class="navigation--link addTask" title="Add Tasks">
+                        <img src="${browsePath}add-more.svg" class="img-fluid" alt="${LOGIN_USER["name"]}" width="50" height="50"/>
+                    </li>`;
 }
 // This function will render the current user that is loged in right now
 window.currentUserHandler = function currentUserHandler() {

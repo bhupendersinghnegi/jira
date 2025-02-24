@@ -135,7 +135,7 @@ let APPLICATION_DB = {
         }
     }, TASKS: {
         "task1": {
-            "id": "task1",
+            "task_id": "task1",
             "title": "Develop AI-powered Chatbot",
             "description": "Build an AI-driven chatbot using NLP to enhance customer support services.",
             "status": "Pending",
@@ -150,11 +150,11 @@ let APPLICATION_DB = {
             "department": "IT"
         },
         "task2": {
-            "id": "task2",
+            "task_id": "task2",
             "title": "Launch New E-commerce Platform",
             "description": "Develop and deploy a scalable e-commerce platform to handle millions of transactions.",
             "status": "Working",
-            "assigned_to": "user4",
+            "assigned_to": "user1",
             "enterprise": "enterprise2",
             "tag_to": {
                 "departments": ["IT", "Marketing"],
@@ -165,7 +165,7 @@ let APPLICATION_DB = {
             "department": "E-commerce"
         },
         "task3": {
-            "id": "task3",
+            "task_id": "task3",
             "title": "Implement Cybersecurity Framework",
             "description": "Enhance security protocols to prevent data breaches and cyber threats.",
             "status": "Pending",
@@ -180,7 +180,7 @@ let APPLICATION_DB = {
             "department": "Cybersecurity"
         },
         "task4": {
-            "id": "task4",
+            "task_id": "task4",
             "title": "Design Next-Gen Electric Vehicle",
             "description": "Research and develop a new electric vehicle with enhanced battery efficiency and performance.",
             "status": "Pending",
@@ -195,7 +195,7 @@ let APPLICATION_DB = {
             "department": "Automobile"
         },
         "task5": {
-            "id": "task5",
+            "task_id": "task5",
             "title": "Optimize iOS Performance",
             "description": "Enhance the iOS system performance for smoother user experience and battery efficiency.",
             "status": "Completed",
@@ -210,7 +210,7 @@ let APPLICATION_DB = {
             "department": "Software Development"
         },
         "task6": {
-            "id": "task6",
+            "task_id": "task6",
             "title": "Redesign Social Media Algorithm",
             "description": "Enhance feed ranking algorithms to improve user engagement and content relevance.",
             "status": "Working",
@@ -225,7 +225,7 @@ let APPLICATION_DB = {
             "department": "Artificial Intelligence"
         },
         "task7": {
-            "id": "task7",
+            "task_id": "task7",
             "title": "Develop 6G Wireless Technology",
             "description": "Research and prototype the next-generation 6G network technology for global connectivity.",
             "status": "Pending",
@@ -240,7 +240,7 @@ let APPLICATION_DB = {
             "department": "Telecommunications"
         },
         "task8": {
-            "id": "task8",
+            "task_id": "task8",
             "title": "Expand Video Streaming Content",
             "description": "Partner with global production houses to expand the library of exclusive content.",
             "status": "Working",
@@ -255,7 +255,7 @@ let APPLICATION_DB = {
             "department": "Entertainment"
         },
         "task9": {
-            "id": "task9",
+            "task_id": "task9",
             "title": "Develop Sustainable Shoe Line",
             "description": "Create a new product line of eco-friendly and biodegradable footwear.",
             "status": "Pending",
@@ -270,7 +270,7 @@ let APPLICATION_DB = {
             "department": "Sustainability"
         },
         "task10": {
-            "id": "task10",
+            "task_id": "task10",
             "title": "Launch Global Travel Initiative",
             "description": "Enhance travel experiences with AI-based customer personalization and booking automation.",
             "status": "Completed",
