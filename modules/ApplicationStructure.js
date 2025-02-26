@@ -55,28 +55,33 @@ function userIsActiveHandler({ user }) {
 const ApplicationStructure = {
 
     //  These are the all the components of the application
+    COMING_SOON_COMPONENT: {
+        CODE: `<section class="comingSoon">
+                <div>
+                    <h2>Coming Soon</h2>
+                    <p>We’re working hard to bring you something amazing! Our website is currently under construction, but we’ll be launching soon. Stay tuned for updates, and thank you for your patience! 🚀</p>
+                </div>       
+            </section>`
+    },
     HEADER_COMPONENT: {
         CODE: `
             <header>
                 <ul class="list-unset userInfo">
                     <li class="dorpdown">
-                        <div class="info--options notificationButton">
+                        <div class="dorpdownHeading info--options notificationButton">
                             ${notificationIcon}
                         </div>
                         <div class="dorpdown--menu">
                             $$$notificationButtonHandler$$$
                         </div>
                     </li>
-                    <li class="dorpdown ">
+                    <li>
                         <div class="info--options policyButton">
                             ${policyIcon}
                         </div>
-                        <div class="dorpdown--menu">
-                            <h1>testing</h1>
-                        </div>
                     </li>
                     <li class="dorpdown ">
-                        <div class="info--options settingsButton">
+                        <div class="dorpdownHeading info--options settingsButton">
                             ${settingsIcons}
                         </div>
                         <div class="dorpdown--menu">
@@ -125,7 +130,7 @@ const ApplicationStructure = {
                 #$NAVIGATION_COMPONENT#$
                 <div class="mainSection">
                     <div class="header--gap">
-                        #$HEADER_COMPONENT#$ 
+                        #$HEADER_COMPONENT#$
                         $$taskFilterHandler$$
                     </div>
                     $$taskHandler$$
@@ -140,12 +145,7 @@ const ApplicationStructure = {
                 #$NAVIGATION_COMPONENT#$
                 <div class="mainSection">
                     #$HEADER_COMPONENT#$
-                    <div class="task--details">
-                        <h2 class="task--heading">Task Details</h2>
-                        <div class="task--info">
-                            $$taskDetailsHandler$$
-                        </div>
-                    </div>
+                    $$taskDetailsHandler$$
                 </div>
             </section>`,
     },
@@ -153,6 +153,10 @@ const ApplicationStructure = {
         CODE: `
             <section class="container dashboardPage">
                 #$NAVIGATION_COMPONENT#$
+                <div class="mainSection">
+                    #$HEADER_COMPONENT#$ 
+                    #$COMING_SOON_COMPONENT#$ 
+                </div>
             </section>
         `
     },
@@ -160,6 +164,10 @@ const ApplicationStructure = {
         CODE: `
             <section class="container dashboardPage">
                 #$NAVIGATION_COMPONENT#$
+                <div class="mainSection">
+                    #$HEADER_COMPONENT#$ 
+                    #$COMING_SOON_COMPONENT#$
+                </div>
             </section>
         `
     },
@@ -167,6 +175,10 @@ const ApplicationStructure = {
         CODE: `
             <section class="container dashboardPage">
                 #$NAVIGATION_COMPONENT#$
+                <div class="mainSection">
+                    #$HEADER_COMPONENT#$ 
+                    #$COMING_SOON_COMPONENT#$
+                </div>
             </section>
         `
     },
@@ -256,7 +268,7 @@ function HTMLHandler({ page }) {
     componentsMatches && componentsMatches.forEach(match => {
         const key = match.replaceAll("#$", "");
         const value = ApplicationStructure[key]["CODE"];
-        HTML = HTML.replace(match, value); 
+        HTML = HTML.replace(match, value);
         // This will call the function and insert the output to the pages
         HTML = functionsMatchesHandler(HTML);
     });

@@ -1,8 +1,8 @@
 // THis the navigator of the site it will decide which page to show  
 
-import { getURLQuery } from "./AllFunctions.js";
+import { getURLQuery, removeDropdownHandler } from "./AllFunctions.js";
 import { pageLoader, URL_MAPPING, userIsActiveHandler } from "./ApplicationStructure.js";
-import { LOGIN_USER } from "./Controller.js";
+import { LOGIN_USER, loginUserHandler } from "./Controller.js";
 import { APPLICATION_DB, ENTERPRISE } from "./ProductInfo.js";
 
 // This url is used to track of the last url user have visited
@@ -30,6 +30,16 @@ async function Navigation() {
         let URLSetup = getURLQuery();
 
         const targetElement = Event.target;
+        if (targetElement.closest(".dorpdownHeading")) {
+            const dorpdown = targetElement.closest(".dorpdown");
+            // Add or remove the class as per it's there or not
+            dorpdown.classList.toggle("active");
+            // Remove all the dorpdown once any heading is clicked
+            removeDropdownHandler(dorpdown);
+        } else if (!targetElement.closest(".dorpdown")) {
+            // Remove all the dorpdown once any heading is clicked
+            removeDropdownHandler()
+        }
         if (targetElement.closest(".navigationLink")) {
             const navigationComponent = targetElement.closest(".navigationComponent");
             const activeLink = navigationComponent.querySelector(".active--link");
@@ -39,6 +49,14 @@ async function Navigation() {
             const dataURL = currentLink.dataset.url;
             urlWriting(`?${dataURL}`);
             pageNavigation(targetElement);
+        } else if (targetElement.closest(".userLognout")) {
+            localStorage.removeItem("USER_ID");
+            longOutHandler();
+        } else if (targetElement.closest(".addTask")) {
+            document.body.dataset.modal = "addTask";
+        } else if (targetElement.closest(".backDrop") ||
+            targetElement.closest(".closeModal")) {
+            document.body.dataset.modal = "";
         } else if (targetElement.closest(".tasksCart")) {
             const tasksCart = targetElement.closest(".tasksCart");
             const taskId = tasksCart.dataset.task;
@@ -47,6 +65,12 @@ async function Navigation() {
             pageNavigation(targetElement);
         }
     })
+}
+// This function move user to longout page
+function longOutHandler() {
+    loginUserHandler();
+    urlWriting(``)
+    pageLoader({ page: "LOGIN_PAGE" });
 }
 
 // This function is used to move page from 1 to other page 
@@ -61,8 +85,7 @@ function pageNavigation(targetElement) {
     // Redirect to the login page is user is not login
     if (!LOGIN_USER || !Object.keys(LOGIN_USER).length) {
         // GO back to the login page
-        urlWriting(``)
-        pageLoader({ page: "LOGIN_PAGE" });
+        longOutHandler();
         return null;
     }
 

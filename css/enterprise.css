@@ -7,7 +7,12 @@
 .tasks--cart .cart--head .enterpriseImage {
     width: 150px;
 }
-
+.details--page .cart--head .enterpriseImage {
+    width: 250px;    
+}
+.details--page .cart--head img{
+    height:auto;
+}
 
 .tasks--cart[data-enterprise_name="google"] .cart--head {
     background-color: var(--bg-google);

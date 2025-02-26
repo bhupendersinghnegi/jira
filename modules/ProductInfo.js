@@ -505,10 +505,18 @@ const ENTERPRISE = {
 
 
 // Type of task that shows the state of a task
-const TASK_STATUS = {
+let TASK_STATUS = {
     Pending: 0,
     Working: 0,
     Completed: 0,
+}
+
+function resetTaskStatusHander(){
+    TASK_STATUS = {
+        Pending: 0,
+        Working: 0,
+        Completed: 0,
+    }
 }
 // This is the indexing for all the use quikly search for somthing in the APPLICATION_DB
 const APPLICATION_MAPPING = {
@@ -557,5 +565,5 @@ function applicationMappingHandler() {
     })
 }
 
-export { APPLICATION_DB, APPLICATION_MAPPING, applicationHandler, ENTERPRISE, LOGGED_IN_USER, TASK_STATUS };
+export { resetTaskStatusHander,APPLICATION_DB, APPLICATION_MAPPING, applicationHandler, ENTERPRISE, LOGGED_IN_USER, TASK_STATUS };
 

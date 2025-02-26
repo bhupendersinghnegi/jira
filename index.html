@@ -9,10 +9,11 @@
 
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/enterprise.css">
+    <link rel="stylesheet" href="./css/fromToDate.css">
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
-<body>
+<body data-modal="">
     <!-- This is the starting part of this application -->
     <main class="ContainerSection w-100"> 
 
@@ -26,19 +27,87 @@
         </div>
     </section>
 
-    <section class="back-drop"></section>
+    <section class="back--drop backDrop"></section>
+    <!-- All types of modals will be placed here -->
+     <section class="modal addTask">
+        <button class="closeModal">
+            <img src="./images/close-circle.svg" class="img-fluid" alt="close modal">
+        </button>
+
+        <h2 class="modal--heading">CREATE A NEW TASK</h2>
+        <form class="modal--form addTaskForm row">
+            <div class="col-md-6">
+                <div class="input--group">
+                    <label for="clientname">Client Name</label>
+                    <div class="select">
+                        <select name="clientname">
+                            <option value="" selected>-- Select Client Name --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input--group">
+                    <label for="manager">Department (Manager Assigned)</label>
+                    <div class="select">
+                        <select name="manager">
+                            <option value="" selected>-- Select Department (Manager Assigned) --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="input--group">
+                    <label for="tasktitle">Task Title</label>
+                    <input type="text" name="tasktitle">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="input--group">
+                    <label for="taskdescription">Task Description</label>
+                    <textarea type="text" name="taskdescription"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input--group">
+                    <label for="status">Task Status</label>
+                    <div class="select">
+                        <select name="status">
+                            <option value="" selected>-- Select Status --</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="input--group">
+                    <label for="taskduration">Task Duration</label>
+                    <section class="fromToDate calendar">
+
+                    </section> 
+                </div>
+            </div>
+            
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+     </section>
+    <!-- All types modals close here -->
+
 
     <a href="https://www.figma.com/proto/xoh7Sc88mUJPBnBwuHtwcK/LOGIN-PAGE?node-id=519-384&t=jem1OJOlPJ41OOLA-1" class="figmaLink" target="_blank">
         <img src="./images/figma.svg" width="100" height="100" class="img-fluid" alt="figma logo">
-      </a>
+    </a>
     <script>
         window.browsePath="./images/";
     </script>
-    <!-- Application modules -->
+    <!-- Application Modules --> 
+    <!-- Set of Pages(Components) -->
     <script src="./modules/Pages/Components.js" type="module"></script>
     <script src="./modules/Pages/DashboardPage.js" type="module"></script>
     <script src="./modules/Pages/TasksPage.js" type="module"></script>
     <script src="./modules/Pages/LoginPage.js" type="module"></script>
+    <!-- Application Controller every this is srated with this fill -->
     <script src="./modules/Controller.js" type="module"></script> 
 </body>
 </html>

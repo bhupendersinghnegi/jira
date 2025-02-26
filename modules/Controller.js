@@ -1,5 +1,6 @@
 // This the starting point of this application every thing will start from this file only.
 import { Navigation, pageNavigation } from "./Navigation.js";
+import { calendarInitHandler } from "./Plugins/fromToDate.js";
 import { applicationHandler } from "./ProductInfo.js";
 
 
@@ -24,6 +25,11 @@ function init() {
 
     // Show the page as per the URL scheme
     pageNavigation();
+
+    // This is the function that will laod the calender for this application
+    calendarInitHandler({
+        tag: ".fromToDate", 
+    });
 }
 window.addEventListener("load", init);
 

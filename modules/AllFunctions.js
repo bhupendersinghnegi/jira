@@ -45,7 +45,17 @@ function debouncingHandler(fn, delay = 1000) {
             fn(arg);
         }, delay);
     }
-} 
+}
 
-export { debouncingHandler, errorModal, formattedDateHandler, getURLQuery };
+// Remove all the dorpdown once any heading is clicked
+function removeDropdownHandler(dorpdownTag) {
+
+    const activeDropdown = document.querySelectorAll(".dorpdown.active");
+    Array.from(activeDropdown).forEach(tag => {
+        if (dorpdownTag === tag) { return null; }
+        tag.classList.remove("active")
+    });
+}
+
+export { removeDropdownHandler, debouncingHandler, errorModal, formattedDateHandler, getURLQuery };
 

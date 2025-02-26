@@ -30,13 +30,35 @@ window.currentUserHandler = function currentUserHandler() {
         console.log("currentUserHandler:: Please check the user")
         return null;
     }
-    return `<div class="loggedInUser">
+    return `<div class="dorpdown">
+                <div class="loggedInUser dorpdownHeading">
                     <img src="${browsePath}${LOGIN_USER["profile_picture"]}" alt="${LOGIN_USER["name"]}" width="55" height="55" />
                     <div class="user--details">
                         <h2 class="user--name">${LOGIN_USER["name"]}</h2>
                         <p class="user--role">${LOGIN_USER["role"]}</p>
                     </div>
-                </div>`;
+                </div>
+                <div class="dorpdown--menu user">
+                    <div class="user--info">
+                        <div class="user--profile"> 
+                            <img src="${browsePath}${LOGIN_USER["profile_picture"]}" alt="${LOGIN_USER["name"]}" class="user--profile__pic img-fluid" />
+                            <div class="editUser btn-primary">
+                                <img src="${browsePath}edit-profile.svg" alt="edit user info" class="img-fluid"/>
+                            </div>
+                        </div>
+                        <h2>Hi, ${LOGIN_USER["name"]}</h2>
+                    </div>
+                    <ul class="application--info list-unset">
+                        <li class="policyButton">Privacy Policy</li>
+                        <li class="policyButton">Terms of Service</li>
+                    </ul>
+
+                    <button class="btn btn-primary userLognout">
+                            <img src="${browsePath}logout.svg" alt="edit user info" width="18" height="18" />
+                            Longout
+                    </button>
+                </div>
+            </div>`;
 }
 
 window.notificationButtonHandler = function notificationButtonHandler() {

@@ -190,37 +190,47 @@ window.taskDetailsHandler = function taskDetailsHandler() {
     let URLSetup = getURLQuery();
 
     const { task_id, title, description, tag_to, status, assigned_to, startingDate, dueDate } = APPLICATION_DB["TASKS"][URLSetup["task"]];
-    const { name } = ENTERPRISE[URLSetup["enterprise"]];
+    const { name, image_url } = ENTERPRISE[URLSetup["enterprise"]];
     const { name: userName } = APPLICATION_DB["USERS"][assigned_to];
     const setStartingDate = formattedDateHandler(startingDate);
     const setEndDate = formattedDateHandler(dueDate);
     const assginTo = assginToHandler(task_id, tag_to);
+    const enterprise_name = name.replaceAll(" ", "").toLowerCase();
 
     return `
-        <div>
-            <span class="h2">Product:</span> ${name}
-        </div>
-        <div>
-            <span class="h2">Task Title:</span> ${title}
-        </div>
-        <div>
-            <span class="h2">Description:</span> ${description}
-        </div>
-        <div class="assgin--to">
-            <span class="h2">Assigned To:</span> ${userName}
-            <img src="${browsePath}edit-task.svg" class="editTask" alt="edit task" width="20" height="20" />
-        </div>
-        <div>
-            <span class="h2">Status:</span> ${status}
-        </div>
-        <div>
-            <span class="h2">Starting Date:</span> ${setStartingDate}
-        </div>
-        <div>
-            <span class="h2">End Date:</span> ${setEndDate}
-        </div>
-        <ul class="list-unset tag--to">
-            ${assginTo}
-        </ul>
-    `
+        <div class="task--details details--page tasks--cart" data-enterprise_name="${enterprise_name}">
+            <div class="task--banner cart--head">
+                <img src="${browsePath}enterprise/${image_url}" alt="${name}" class="img-fluid enterpriseImage">
+            </div>
+        
+            <h2 class="task--heading">Task Details</h2>
+            <div class="task--info">
+                <div>
+                    <span class="h2">Product:</span> ${name}
+                </div>
+                <div>
+                    <span class="h2">Task Title:</span> ${title}
+                </div>
+                <div>
+                    <span class="h2">Description:</span> ${description}
+                </div>
+                <div class="assgin--to">
+                    <span class="h2">Assigned To:</span> ${userName}
+                    <img src="${browsePath}edit-task.svg" class="editTask" alt="edit task" width="20" height="20" />
+                </div>
+                <div>
+                    <span class="h2">Status:</span> ${status}
+                </div>
+                <div>
+                    <span class="h2">Starting Date:</span> ${setStartingDate}
+                </div>
+                <div>
+                    <span class="h2">End Date:</span> ${setEndDate}
+                </div>
+                <ul class="list-unset tag--to">
+                    ${assginTo}
+                </ul>    
+            
+            </div>
+        </div>`;
 }
