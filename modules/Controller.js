@@ -1,4 +1,5 @@
 // This the starting point of this application every thing will start from this file only.
+import { addTaskModalHandler, addTaskSubmitHandler } from "./FormsHandler.js";
 import { Navigation, pageNavigation } from "./Navigation.js";
 import { calendarInitHandler } from "./Plugins/fromToDate.js";
 import { applicationHandler } from "./ProductInfo.js";
@@ -8,7 +9,7 @@ const toastEl = document.querySelector(".listToast");
 // Info of the user is login in right now
 let LOGIN_USER;
 // Set the minimum length for search to work
-const MIN_SEARCH_LENGTH = 3; 
+const MIN_SEARCH_LENGTH = 3;
 // This is the function that will set login value of this application and also do logout
 function loginUserHandler(user) {
     LOGIN_USER = user;
@@ -28,8 +29,15 @@ function init() {
 
     // This is the function that will laod the calender for this application
     calendarInitHandler({
-        tag: ".fromToDate", 
+        tag: ".fromToDate",
     });
+
+
+    // All the from handler start from here
+    // Fill the input in the add task module
+    addTaskModalHandler();
+    const addTaskForm = document.querySelector(".addTaskForm");
+    addTaskForm.addEventListener("submit", addTaskSubmitHandler);
 }
 window.addEventListener("load", init);
 

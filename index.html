@@ -37,53 +37,59 @@
         <h2 class="modal--heading">CREATE A NEW TASK</h2>
         <form class="modal--form addTaskForm row">
             <div class="col-md-6">
-                <div class="input--group">
+                <div class="input--group isValid" data-valid="true">
                     <label for="clientname">Client Name</label>
                     <div class="select">
                         <select name="clientname">
                             <option value="" selected>-- Select Client Name --</option>
                         </select>
                     </div>
+                    <p class="invalid-input">Please select client name</p>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="input--group">
+                <div class="input--group isValid" data-valid="true">
                     <label for="manager">Department (Manager Assigned)</label>
                     <div class="select">
                         <select name="manager">
                             <option value="" selected>-- Select Department (Manager Assigned) --</option>
                         </select>
                     </div>
+                    <p class="invalid-input">Please select Department (Manager Assigned)</p>
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="input--group">
+                <div class="input--group isValid" data-valid="true">
                     <label for="tasktitle">Task Title</label>
                     <input type="text" name="tasktitle">
+                    <p class="invalid-input">Please select Task Title</p>
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="input--group">
+                <div class="input--group isValid" data-valid="true">
                     <label for="taskdescription">Task Description</label>
                     <textarea type="text" name="taskdescription"></textarea>
+                    <p class="invalid-input">Please select Task Description</p>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="input--group">
+                <div class="input--group isValid" data-valid="true">
                     <label for="status">Task Status</label>
                     <div class="select">
                         <select name="status">
                             <option value="" selected>-- Select Status --</option>
                         </select>
                     </div>
+                    <p class="invalid-input">Please select Task Status</p>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="input--group">
+                <div class="input--group isValid" data-valid="true">
                     <label for="taskduration">Task Duration</label>
                     <section class="fromToDate calendar">
 
                     </section> 
+                    <p class="invalid-input">Please select Task Duration</p>
                 </div>
             </div>
             

@@ -511,7 +511,7 @@ let TASK_STATUS = {
     Completed: 0,
 }
 
-function resetTaskStatusHander(){
+function resetTaskStatusHandler(){
     TASK_STATUS = {
         Pending: 0,
         Working: 0,
@@ -565,5 +565,5 @@ function applicationMappingHandler() {
     })
 }
 
-export { resetTaskStatusHander,APPLICATION_DB, APPLICATION_MAPPING, applicationHandler, ENTERPRISE, LOGGED_IN_USER, TASK_STATUS };
+export { APPLICATION_DB, APPLICATION_MAPPING, applicationHandler, ENTERPRISE, LOGGED_IN_USER, resetTaskStatusHandler, TASK_STATUS };
 

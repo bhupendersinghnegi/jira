@@ -2,14 +2,14 @@
 
 import { finishedIcon, inProgressIcon, totalIcon, yetToStartIcon } from "../ApplicationIcons.js";
 import { LOGIN_USER } from "../Controller.js";
-import { APPLICATION_DB, resetTaskStatusHander, TASK_STATUS } from "../ProductInfo.js";
+import { APPLICATION_DB, resetTaskStatusHandler, TASK_STATUS } from "../ProductInfo.js";
 
 // This function will render all the information need for any user dashboard task section
 window.dashboardTasks = function dashboardTasks() {
     let totalTaskCount = 0;
 
     // Reset the count to zore for the calculation
-    resetTaskStatusHander();
+    resetTaskStatusHandler();
     // Check all tasks 
     Object.entries(LOGIN_USER["assigned_tasks"]).forEach(([key, _]) => {
         if (!APPLICATION_DB["TASKS"].hasOwnProperty(key)) {

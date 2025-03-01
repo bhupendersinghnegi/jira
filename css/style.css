@@ -4,6 +4,7 @@
   position: fixed;
   bottom: 16px;
   right: 16px;
+  z-index:2;
   background-color: #000000;
   border-radius: 100%;
   padding: 10px;
@@ -767,10 +768,10 @@ body[data-modal=""] .back--drop {
 .input--group select:hover,
 .input--group select{
   width:100%;
-  background-color:unset !important;
+  /* background-color:unset !important; */
   border: 1px solid var(--gc-white) !important;
   border-radius: var(--br-small) !important;
-  color: var(--gc-white);
+  /* color: var(--gc-white); */
 }
 input[name="taskdescription"]{
   height: 100px;
@@ -780,5 +781,13 @@ input[name="taskdescription"]{
 }
 .input--group .select::after { 
   background-image: url(../images/down-white-arrow.svg); 
+}
+.isValid[data-valid="true"] .invalid-input{
+  display: none;
+}
+.invalid-input{
+  font-size: 14px;
+  margin-bottom: 0;
+  color: red;
 }
 /* modals close */
